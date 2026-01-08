@@ -1,0 +1,29 @@
+{
+  "name": "Collabora Online",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "forwardPorts": [9980, 6080, 5900],
+  "portsAttributes": {
+    "9980": {
+      "label": "Collabora Online",
+      "onAutoForward": "ignore"
+    },
+    "6080": {
+      "label": "VNC",
+      "onAutoForward": "openBrowser"
+    },
+    "5900": {
+      "label": "VNC Raw",
+      "onAutoForward": "ignore"
+    }
+  },
+  "onCreateCommand": "bash .devcontainer/scripts/get-core-and-configure.sh",
+  "postStartCommand": "bash .devcontainer/scripts/build-and-run.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": []
+    }
+  }
+}
