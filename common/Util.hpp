@@ -62,6 +62,13 @@ extern "C"
 #define FDCOUNTER_USABLE 1
 #endif
 
+/// Format hours with the units suffix until we migrate to C++20.
+inline std::ostream& operator<<(std::ostream& os, const std::chrono::hours& h)
+{
+    os << h.count() << "h";
+    return os;
+}
+
 /// Format minutes with the units suffix until we migrate to C++20.
 inline std::ostream& operator<<(std::ostream& os, const std::chrono::minutes& s)
 {
