@@ -7,7 +7,7 @@ echo "=== Get Core & Configure ==="
 cd /workspaces
 if [ ! -d "instdir" ]; then
     echo "Downloading LibreOffice core..."
-    wget --no-verbose https://github.com/CollaboraOnline/online/releases/download/for-code-assets/core-co-25.04-assets.tar.gz
+    curl -L -o core-co-25.04-assets.tar.gz https://github.com/CollaboraOnline/online/releases/download/for-code-assets/core-co-25.04-assets.tar.gz
     tar xf core-co-25.04-assets.tar.gz
     rm core-co-25.04-assets.tar.gz
 else
