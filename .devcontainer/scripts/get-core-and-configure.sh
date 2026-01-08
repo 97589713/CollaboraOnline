@@ -4,7 +4,7 @@ set -e
 echo "=== Get Core & Configure ==="
 
 # Download and extract LibreOffice core
-cd /workspace
+cd /workspaces
 if [ ! -d "instdir" ]; then
     echo "Downloading LibreOffice core..."
     wget --no-verbose https://github.com/CollaboraOnline/online/releases/download/for-code-assets/core-co-25.04-assets.tar.gz
@@ -15,14 +15,14 @@ else
 fi
 
 # Return to project directory
-cd /workspace/CollaboraOnline
+cd /workspaces/CollaboraOnline
 
 # Run autogen and configure
 echo "Running autogen.sh..."
 ./autogen.sh
 
 echo "Running configure..."
-./configure --enable-silent-rules --with-lokit-path=/workspace/include --with-lo-path=/workspace/instdir --enable-debug -enable-cypress
+./configure --enable-silent-rules --with-lokit-path=/workspaces/include --with-lo-path=/workspaces/instdir --enable-debug -enable-cypress
 
 # Copy configuration files
 echo "Copying configuration files..."

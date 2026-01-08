@@ -4,7 +4,7 @@ set -e
 echo "=== Building and Running Collabora Online ==="
 
 # Build and run in background
-cd /workspace/CollaboraOnline
+cd /workspaces/CollaboraOnline
 
 # Start build and run process
 echo "Starting make run..."
