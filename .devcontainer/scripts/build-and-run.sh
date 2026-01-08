@@ -14,7 +14,7 @@ nohup make -j$(nproc) run > /tmp/collabora-build.log 2>&1 &
 echo "Waiting for Collabora Online to start on port 9980..."
 timeout=300
 elapsed=0
-while ! nc -z localhost 9980; do
+while ! timeout 1 bash -c "echo > /dev/tcp/localhost/9980" 2>/dev/null; do
     if [ $elapsed -ge $timeout ]; then
         echo "Timeout waiting for port 9980"
         echo "Last 50 lines of build log:"
